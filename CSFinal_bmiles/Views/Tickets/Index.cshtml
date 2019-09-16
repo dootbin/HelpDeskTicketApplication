@@ -1,0 +1,72 @@
+﻿@model IEnumerable<CSFinal_bmiles.Models.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Created By
+        </th>
+        <th>
+            Date and Time Opened
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date.Date)
+        </td>
+        @if (item.ClosedDate != null)
+        {
+            <td>Closed</td>
+        }
+        else
+        {
+            <td>Open</td>
+        }
+        @if ( item.Priority <= 0)
+        {
+            <td>
+                NONE
+            </td>
+        } else if ( item.Priority == 1 )
+        {
+            <td>LOW</td>
+        } else if ( item.Priority == 2 )
+        {
+            <td>MEDIUM</td>
+        } else if (item.Priority >= 3 )
+        {
+            <td>HIGH</td>
+        }
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.TicketId })
+                @if (ViewContext.HttpContext.User.IsInRole("admin"))
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TicketId })
+                }
+
+            </td>
+    </tr>
+}
+
+</table>

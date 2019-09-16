@@ -1,0 +1,205 @@
+﻿@model IEnumerable<CSFinal_bmiles.Models.Ticket>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            Date Opened
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        if (item.Priority <= 0)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+
+                @if (item.ClosedDate != null)
+                {
+                    <td>
+                        Closed
+                    </td>
+                }
+                else
+                {
+                    <td>Open</td>
+                }
+
+                @if (item.Priority <= 0)
+                {
+                    <td>
+                        NONE
+                    </td>
+                }
+                else if (item.Priority == 1)
+                {
+                    <td>LOW</td>
+                }
+                else if (item.Priority == 2)
+                {
+                    <td>MEDIUM</td>
+                }
+                else if (item.Priority >= 3)
+                {
+                    <td>HIGH</td>
+                }
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.TicketId })
+                </td>
+            </tr>
+        }
+        else if (item.Priority == 1)
+        {
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+
+            @if (item.ClosedDate != null)
+            {
+                <td>
+                    Closed
+                </td>
+            }
+            else
+            {
+                <td>Open</td>
+            }
+
+            @if (item.Priority <= 0)
+            {
+                <td>
+                    NONE
+                </td>
+            }
+            else if (item.Priority == 1)
+            {
+                <td>LOW</td>
+            }
+            else if (item.Priority == 2)
+            {
+                <td>MEDIUM</td>
+            }
+            else if (item.Priority >= 3)
+            {
+                <td>HIGH</td>
+            }
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.TicketId })
+            </td>
+        </tr>
+        }
+        else if (item.Priority == 2)
+        {
+            <tr class="my-priority-m">
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+
+            @if (item.ClosedDate != null)
+            {
+                <td>
+                    Closed
+                </td>
+            }
+            else
+            {
+                <td>Open</td>
+            }
+
+            @if (item.Priority <= 0)
+            {
+                <td>
+                    NONE
+                </td>
+            }
+            else if (item.Priority == 1)
+            {
+                <td>LOW</td>
+            }
+            else if (item.Priority == 2)
+            {
+                <td>MEDIUM</td>
+            }
+            else if (item.Priority >= 3)
+            {
+                <td>HIGH</td>
+            }
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.TicketId })
+            </td>
+        </tr>
+        }
+        else if (item.Priority >= 3)
+        {
+            <tr class="my-priority-h">
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+
+            @if (item.ClosedDate != null)
+            {
+                <td>
+                    Closed
+                </td>
+            }
+            else
+            {
+                <td>Open</td>
+            }
+
+            @if (item.Priority <= 0)
+            {
+                <td>
+                    NONE
+                </td>
+            }
+            else if (item.Priority == 1)
+            {
+                <td>LOW</td>
+            }
+            else if (item.Priority == 2)
+            {
+                <td>MEDIUM</td>
+            }
+            else if (item.Priority >= 3)
+            {
+                <td>HIGH</td>
+            }
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.TicketId })
+            </td>
+        </tr>
+        }
+
+    }
+
+</table>

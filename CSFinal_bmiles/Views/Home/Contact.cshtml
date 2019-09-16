@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<br /><br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <address>
+                620 West Clairemont Avenue<br />
+                Eau Claire, WI 54701<br />
+                <abbr title="Phone">P:</abbr>
+                1 715 833 6200
+            </address>
+
+            <address>
+                <strong>Email:</strong>   <a href="mailto:bmiles@student.cvtc.edu">bmiles@student.cvtc.edu</a><br />
+            </address>
+        </div>
+        <div class="col">
+            <form class="contact-form" action="" method="post" data-form-title="">
+                <input type="hidden" data-form-email="true" value="">
+                <div class="row row-sm-offset">
+                    <div class="col-md-4 multi-horizontal" data-for="name">
+                        <div class="form-group">
+                            <label class="form-control-label mbr-fonts-style display-7" for="name-form1-2w">Name</label>
+                            <input type="text" class="form-control" name="name" data-form-field="Name" required="" id="name-form1-2w">
+                        </div>
+                    </div>
+                    <div class="col-md-4 multi-horizontal" data-for="email">
+                        <div class="form-group">
+                            <label class="form-control-label mbr-fonts-style display-7" for="email-form1-2w">Email</label>
+                            <input type="email" class="form-control" name="email" data-form-field="Email" required="" id="email-form1-2w">
+                        </div>
+                    </div>
+                    <div class="col-md-4 multi-horizontal" data-for="phone">
+                        <div class="form-group">
+                            <label class="form-control-label mbr-fonts-style display-7" for="phone-form1-2w">Phone</label>
+                            <input type="tel" class="form-control" name="phone" data-form-field="Phone" id="phone-form1-2w">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" data-for="message">
+                    <label class="form-control-label mbr-fonts-style display-7" for="message-form1-2w">Message</label>
+                    <textarea type="text" class="form-control" name="message" rows="7" data-form-field="Message" id="message-form1-2w"></textarea>
+                </div>
+
+                <span class="input-group-btn">
+                    <button href="" type="submit" class="btn btn-outline-info display-4">SEND MESSAGE</button>
+                </span>
+            </form>
+        </div>
+    </div>
+
+
+</div>

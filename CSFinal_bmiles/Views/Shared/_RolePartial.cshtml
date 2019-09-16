@@ -1,0 +1,8 @@
+﻿@if (ViewContext.HttpContext.User.IsInRole("staff"))
+{
+    <li class="nav-item"><a href="~/Tickets/Index" class="nav-link">All Tickets</a></li>
+}
+@if (ViewContext.HttpContext.User.IsInRole("admin"))
+{
+    <em class="nav-item nav-link admin-em">You are the admin!</em>
+}

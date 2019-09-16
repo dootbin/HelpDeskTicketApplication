@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/MainCss")
+
+
+</head>
+<body>
+
+    <main class="container body-content my-primary">
+        <header class="container">
+            <ul class="nav justify-content-center my-primary">
+                <li class="nav-item"><a class="nav-link" href="~/Home/Index">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="~/Home/About">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="~/Home/Contact">Contact</a></li>
+                @Html.Partial("_LoginPartial")
+            </ul>
+        </header>
+        @RenderBody()
+        <hr />
+        <footer class="container my-secondary rounded justify-content-center">
+            <p>&copy; @DateTime.Now.Year - ASP.NET MVC Final <a href="http://github.com/dootbin">Benjamin Miles</a></p>
+        </footer>
+    </main>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

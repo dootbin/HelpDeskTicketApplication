@@ -1,0 +1,75 @@
+﻿@model CSFinal_bmiles.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Model.SetUserName();
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket # @Html.DisplayFor(model => model.TicketId) From User: @Html.DisplayFor(model => model.UserName)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+
+        @if (Model.Priority <= 0)
+        {
+            <dt>
+                NONE
+            </dt>
+        }
+        else if (Model.Priority == 1)
+        {
+            <dt>LOW</dt>
+        }
+        else if (Model.Priority == 2)
+        {
+            <dt>MEDIUM</dt>
+        }
+        else if (Model.Priority >= 3)
+        {
+            <dt>HIGH</dt>
+        }
+        <dt>Status</dt>
+
+        @if (Model.ClosedDate != null)
+        {
+            <dt class="my-closed rounded">
+                Closed on: @Html.DisplayFor(model => model.ClosedDate)
+            </dt>
+        }
+        else
+        {
+            <dt class="my-open rounded">
+                OPEN TICKET
+            </dt>
+        }
+
+
+    </dl>
+    <input type="button" value="Close Ticket" onclick="location.href='@Url.Action("Close", "Tickets", new { id = Model.TicketId }) '" />
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
